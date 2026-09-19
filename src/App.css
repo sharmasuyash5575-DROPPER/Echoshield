@@ -1,0 +1,943 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --navy: #06142f;
+  --navy-light: #0a1d40;
+  --blue: #008cff;
+  --cyan: #00cfff;
+  --white: #f5f8ff;
+  --muted: #8fa4c2;
+  --border: rgba(0, 140, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--navy);
+  color: var(--white);
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(0, 140, 255, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #06142f 0%, #050f23 100%);
+  overflow: hidden;
+}
+
+/* TOP BAR */
+
+.topbar {
+  height: 82px;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--blue);
+  clip-path: polygon(50% 0%, 100% 20%, 92% 75%, 50% 100%, 8% 75%, 0% 20%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: linear-gradient(145deg, #071a3d, #008cff);
+}
+
+.brand-mark span {
+  width: 3px;
+  border-radius: 5px;
+  background: white;
+}
+
+.brand-mark span:nth-child(1) {
+  height: 8px;
+}
+
+.brand-mark span:nth-child(2) {
+  height: 16px;
+}
+
+.brand-mark span:nth-child(3) {
+  height: 26px;
+}
+
+.brand-mark span:nth-child(4) {
+  height: 16px;
+}
+
+.brand-mark span:nth-child(5) {
+  height: 8px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.brand-name span {
+  color: var(--blue);
+}
+
+.brand-subtitle {
+  margin-top: 2px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #9bb1cf;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00cfff;
+  box-shadow: 0 0 12px rgba(0, 207, 255, 0.8);
+}
+
+/* MAIN */
+
+.dashboard {
+  max-width: 1250px;
+  margin: auto;
+  padding: 85px 6vw 50px;
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 70px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.eyebrow span {
+  width: 24px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.hero h1 {
+  margin: 18px 0 20px;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -4px;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #008cff, #00cfff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  max-width: 580px;
+  margin: 0 0 45px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* MONITOR */
+
+.monitor-card {
+  border: 1px solid var(--border);
+  background: rgba(5, 18, 43, 0.72);
+  position: relative;
+  padding: 26px;
+}
+
+.monitor-card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+}
+
+.monitor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monitor-label {
+  margin: 0 0 7px;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+}
+
+.monitor-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.mic-state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.mic-state span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5e708b;
+}
+
+.mic-state.active {
+  color: var(--cyan);
+}
+
+.mic-state.active span {
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+/* WAVEFORM */
+
+.waveform {
+  height: 125px;
+  margin: 35px 0 20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.wave-bar {
+  width: 4px;
+  border-radius: 5px;
+  background: linear-gradient(
+    to bottom,
+    var(--cyan),
+    var(--blue)
+  );
+  opacity: 0.35;
+  transition: all 0.25s ease;
+}
+
+.wave-active .wave-bar {
+  opacity: 1;
+  animation: pulse 1s infinite alternate;
+}
+
+.wave-active .wave-bar:nth-child(2n) {
+  animation-delay: 0.15s;
+}
+
+.wave-active .wave-bar:nth-child(3n) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pulse {
+  from {
+    transform: scaleY(0.45);
+  }
+
+  to {
+    transform: scaleY(1.15);
+  }
+}
+
+/* MONITOR FOOTER */
+
+.monitor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-info span {
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+}
+
+.input-info strong {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.listen-button {
+  border: 1px solid var(--blue);
+  background: rgba(0, 140, 255, 0.08);
+  color: white;
+  padding: 12px 17px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  transition: 0.2s;
+}
+
+.listen-button:hover {
+  background: var(--blue);
+}
+
+.listen-button.stop {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-icon {
+  margin-right: 8px;
+  color: var(--cyan);
+}
+
+/* SIDE PANEL */
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 35px;
+}
+
+.risk-card,
+.analysis-card {
+  border: 1px solid var(--border);
+  background: rgba(5, 18, 43, 0.65);
+  padding: 24px;
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.7px;
+}
+
+.card-heading span {
+  color: var(--blue);
+}
+
+.risk-display {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.risk-ring {
+  width: 145px;
+  height: 145px;
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 207, 255, 0.35);
+  outline: 7px solid rgba(0, 140, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.risk-ring strong {
+  display: block;
+  font-size: 27px;
+  letter-spacing: 2px;
+  color: #00cfff;
+}
+
+.risk-ring small {
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.risk-display p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 25px auto 0;
+  max-width: 220px;
+}
+
+/* ANALYSIS */
+
+.analysis-card {
+  padding-bottom: 10px;
+}
+
+.analysis-row {
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analysis-row strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.analysis-row small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.check {
+  color: var(--cyan);
+  font-size: 16px;
+}
+
+.pending {
+  color: #60738f;
+}
+
+/* FOOTER */
+
+.bottom-bar {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 25px 6vw 35px;
+  display: flex;
+  justify-content: space-between;
+  color: #617793;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.bottom-bar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.blue-line {
+  width: 20px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.footer-note {
+  text-align: right;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .side-panel {
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+/* ================================
+   LIVE MICROPHONE WAVEFORM
+================================ */
+
+.waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.wave-bar {
+  width: 4px;
+  min-height: 18px;
+  max-height: 82px;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #00ccff,
+    #008cff
+  );
+
+  transition:
+    height 0.08s ease,
+    opacity 0.15s ease;
+
+  opacity: 0.45;
+}
+
+.wave-active .wave-bar {
+  opacity: 1;
+}
+
+
+/* Microphone error */
+
+.mic-error {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  background: rgba(255, 50, 50, 0.06);
+  color: #ff8c8c;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+
+/* Active microphone state */
+
+.mic-state.active span {
+  background: #00ccff;
+  box-shadow: 0 0 12px rgba(0, 204, 255, 0.8);
+}
+/* =========================================
+   ECHOSHIELD LIVE SIGNAL METER
+========================================= */
+
+.signal-meter {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 22px;
+}
+
+.signal-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #6e8fbf;
+}
+
+.signal-label strong {
+  color: #00ccff;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.signal-track {
+  width: 100%;
+  height: 3px;
+
+  background: rgba(0, 140, 255, 0.1);
+
+  overflow: hidden;
+}
+
+.signal-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #008cff,
+    #00ccff
+  );
+
+  box-shadow:
+    0 0 10px rgba(0, 204, 255, 0.5);
+
+  transition: width 0.08s linear;
+}
+
+
+/* =========================================
+   ANALYSIS STATUS
+========================================= */
+
+.analysis-active {
+  color: #00ccff;
+
+  font-size: 11px;
+
+  text-shadow:
+    0 0 8px rgba(0, 204, 255, 0.8);
+
+  animation: analysisPulse 1.5s infinite;
+}
+
+@keyframes analysisPulse {
+  0% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.45;
+  }
+}
+
+
+/* =========================================
+   LIVE WAVEFORM
+========================================= */
+
+.wave-active .wave-bar {
+  opacity: 1;
+
+  box-shadow:
+    0 0 6px rgba(0, 204, 255, 0.25);
+}
+
+
+/* =========================================
+   ACTIVE MIC
+========================================= */
+
+.mic-state.active span {
+  background: #00ccff;
+
+  box-shadow:
+    0 0 12px rgba(0, 204, 255, 0.85);
+
+  animation: micPulse 1.2s infinite;
+}
+
+@keyframes micPulse {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+
+/* =========================================
+   MICROPHONE ERROR
+========================================= */
+
+.mic-error {
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(
+    255,
+    80,
+    80,
+    0.35
+  );
+
+  background: rgba(
+    255,
+    50,
+    50,
+    0.06
+  );
+
+  color: #ff8c8c;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+/* =========================================
+   LIVE TRANSCRIPT
+========================================= */
+
+.transcript-box {
+  margin-top: 18px;
+  margin-bottom: 18px;
+
+  border-top: 1px solid rgba(0, 140, 255, 0.14);
+  border-bottom: 1px solid rgba(0, 140, 255, 0.14);
+
+  padding: 14px 0;
+}
+
+.transcript-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #6e8fbf;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.transcript-heading span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #00ccff;
+
+  box-shadow:
+    0 0 8px rgba(0, 204, 255, 0.8);
+
+  animation: transcriptPulse 1.2s infinite;
+}
+
+.transcript-box p {
+  margin: 0;
+
+  min-height: 24px;
+
+  color: #b9cdf0;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@keyframes transcriptPulse {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+
+/* =========================================
+   THREAT CARD
+========================================= */
+
+.threat-card {
+  border: 1px solid rgba(255, 70, 70, 0.28);
+
+  background: rgba(255, 50, 50, 0.025);
+
+  padding: 22px;
+
+  margin-top: 20px;
+}
+
+.threat-card-heading {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  color: #809bc6;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.threat-card-heading span {
+  color: #00aaff;
+}
+
+
+/* =========================================
+   THREAT ROW
+========================================= */
+
+.threat-row {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 13px 0;
+
+  border-top: 1px solid
+    rgba(255, 255, 255, 0.05);
+}
+
+.threat-row:first-of-type {
+  border-top: none;
+}
+
+.threat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid
+    rgba(255, 80, 80, 0.5);
+
+  color: #ff7070;
+
+  font-size: 11px;
+}
+
+.threat-row strong {
+  display: block;
+
+  color: #e9f1ff;
+
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.threat-row small {
+  display: block;
+
+  color: #6e8fbf;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   RISK STATES
+========================================= */
+
+.risk-medium .risk-ring {
+  border-color: rgba(
+    255,
+    180,
+    40,
+    0.65
+  );
+}
+
+.risk-medium .risk-ring strong {
+  color: #ffc247;
+}
+
+.risk-high {
+  border-color: rgba(
+    255,
+    70,
+    70,
+    0.5
+  );
+}
+
+.risk-high .risk-ring {
+  border-color: rgba(
+    255,
+    70,
+    70,
+    0.75
+  );
+
+  box-shadow:
+    0 0 25px
+    rgba(255, 60, 60, 0.08);
+}
+
+.risk-high .risk-ring strong {
+  color: #ff6262;
+}
+
+.risk-high .card-heading span {
+  color: #ff6262;
+}
+
+
+/* =========================================
+   THREAT INDICATOR
+========================================= */
+
+.threat-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: rgba(
+    255,
+    70,
+    70,
+    0.12
+  );
+
+  color: #ff6262;
+
+  font-size: 11px;
+
+  box-shadow:
+    0 0 10px
+    rgba(255, 70, 70, 0.25);
+}
+
+
+/* =========================================
+   SPEECH SUPPORT WARNING
+========================================= */
+
+.speech-warning {
+  color: #ffc247;
+  font-size: 10px;
+  margin-top: 8px;
+}
